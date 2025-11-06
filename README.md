@@ -25,7 +25,7 @@ All code is fully implemented in Python using **NumPy** for matrix computations 
 
 <div align="center">
   <img src="images/colored_dots_drone.jpg" width="350" alt="Example of colored dots setup on drone frame" />
-  <img src="images/aruco_pose_estimation_screenshot.jpg" width="450" alt="Screenshot of ArUco pose estimation algorithm running" />
+  <img src="images/aruco_pose_estimation_screenshot.png" width="450" alt="Screenshot of ArUco pose estimation algorithm running" />
 </div>
 
 ---
@@ -34,6 +34,7 @@ All code is fully implemented in Python using **NumPy** for matrix computations 
 ### Repository Structure
 
 Each marker type has its dedicated folder:
+```
 project_root/
 ├── aruco/                # ArUco marker detection
 │   ├── 2D/               # 2D localization scripts
@@ -46,7 +47,7 @@ project_root/
 │   └── calibration_scripts/
 ├── paper/                # PDF and LaTeX source of the formal research paper
 └── README.md
-
+```
 ### Calibration
 
 - **Intrinsic calibration**: Using chessboard patterns to determine focal lengths, optical center, and distortion parameters.
