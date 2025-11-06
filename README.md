@@ -7,14 +7,14 @@
 ---
 
 ## 📄 Overview
-<img src="images/aruco_detection_scene.jpg" width="400" align="right" />
+<img src="images/aruco_detection_scene.jpg" width="500" align="right" />
 
 This repository contains a **Python-based 3D pose estimation tool** developed to support bachelor and master theses, as well as research projects, at the Vrije Universiteit Brussel (VUB).
 
 A **formal research paper** documenting the full algorithm, mathematical derivation, and results is included in this repository as [paper.pdf](paper.pdf).
 
 <figure>
-  <img src="images/paper_preview.png" width="400"/>
+  <img src="images/paper_preview.png" width="300"/>
   <figcaption>Excerpt from the included research paper (<a href="paper.pdf">paper.pdf</a>).</figcaption>
 </figure>
 
