@@ -1,106 +1,81 @@
-<!--
-  README.md - Pose Estimation Tool for Robotics Lab
--->
-
+<!-- README.md - 3D Pose Estimation Tool -->
 <div align="center">
   <h1>3D Pose Estimation Tool</h1>
   <h3>Developed during a student research job at the Robotics Lab, Vrije Universiteit Brussel</h3>
-
-  <!-- Main project preview image -->
-  <img src="images/aruco_detection_scene.jpg" width="450" alt="Aruco marker detection in the lab" />
 </div>
 
 ---
 
-## 📖 Project Overview
+## 📄 Overview
+<img src="images/aruco_detection_scene.jpg" width="400" align="right" />
 
-This repository contains a **Python-based 3D pose estimation software** designed to support bachelor, master theses, and research projects at the Vrije Universiteit Brussel (VUB). The project was developed during **August 2024 and August 2025** as a student initiative under the supervision of **Prof. Dr. Jan Lemeire**.
+This repository contains a **Python-based 3D pose estimation tool** developed to support bachelor and master theses, as well as research projects, at the Vrije Universiteit Brussel (VUB).
 
-The software estimates the 3D **position and orientation (pose)** of objects using standard cameras and two types of fiducial markers:
+A **formal research paper** documenting the full algorithm, mathematical derivation, and results is included in this repository as [paper.pdf](paper.pdf).
 
-- **ArUco markers** (robust, but slower detection)
-- **Colored dots** (fast, requires controlled environment)
+<figure>
+  <img src="images/paper_preview.png" width="400"/>
+  <figcaption>Excerpt from the included research paper (<a href="paper.pdf">paper.pdf</a>).</figcaption>
+</figure>
 
-All code is fully implemented in Python using **NumPy** for matrix computations and **OpenCV** for computer vision tasks.  
-
-<div align="center">
-  <img src="images/colored_dots_drone.jpg" width="350" alt="Example of colored dots setup on drone frame" />
-  <img src="images/aruco_pose_estimation_screenshot.png" width="450" alt="Screenshot of ArUco pose estimation algorithm running" />
-</div>
+The software estimates the 3D **position and orientation** of objects using multiple cameras and two types of fiducial markers:
+- **ArUco markers** – robust but slower detection  
+- **Colored dots** – fast detection, requires controlled environment
 
 ---
 
-## 🗂️ Repository Structure
-### Repository Structure
+## 🖼️ Images & Examples
+<figure>
+  <img src="images/colored_dots_drone.jpg" width="350"/>
+  <figcaption>Example setup of a drone frame with four colored dots for detection.</figcaption>
+</figure>
 
-Each marker type has its dedicated folder:
-```
-project_root/
-├── aruco/                # ArUco marker detection
-│   ├── 2D/               # 2D localization scripts
-│   └── 3D/               # 3D pose estimation scripts
-├── colored_dots/         # Colored dots detection
-│   ├── 2D/               # 2D localization scripts
-│   └── 3D/               # 3D pose estimation scripts
-├── calibration/          # Intrinsic & extrinsic camera calibration
-│   ├── chessboard_images/ 
-│   └── calibration_scripts/
-├── paper/                # PDF and LaTeX source of the formal research paper
-└── README.md
-```
-### Calibration
-
-- **Intrinsic calibration**: Using chessboard patterns to determine focal lengths, optical center, and distortion parameters.
-- **Extrinsic calibration**: Defines the position and orientation of each camera in the world frame.
+<figure>
+  <img src="images/aruco_pose_estimation_screenshot.png" width="450"/>
+  <figcaption>Screenshot of ArUco pose estimation in progress. Four cameras are tracking the marker; pose and error values are printed for iterative refinement.</figcaption>
+</figure>
 
 ---
 
 ## ⚙️ Features
-
-- Detects object markers and calculates 3D pose in real time
-- Supports multiple cameras, selecting the best two for pose estimation
-- Implements **iterative algorithms** for error minimization
-- Estimates pose uncertainty
-- Fully configurable for different marker sizes, colors, and camera setups
+- Real-time 3D pose estimation  
+- Automatic selection of best two cameras for tracking  
+- Iterative error minimization and uncertainty estimation  
+- Configurable for different marker types, sizes, and camera setups  
+- Includes intrinsic and extrinsic camera calibration scripts  
 
 ---
 
-## 📄 Research Paper
+## 🧭 Usage
 
-A formal research paper accompanies this project, detailing:
+Follow these steps to correctly set up and run the pose estimation system:
 
-- Mathematical derivation of the pose estimation algorithm
-- Comparison between ArUco and colored dot methods
-- Multi-camera integration and optimization
-- Uncertainty estimation
+1. **Intrinsic Calibration**  
+   - Run the `main.py` file inside the **`intrinsic_calibration/`** folder.  
+   - This computes the **camera matrix** and distortion coefficients for each camera.  
 
-Preview of the paper:  
+2. **Extrinsic Calibration**  
+   - Run the `main.py` file inside the **`extrinsic_calibration/`** folder.  
+   - This determines the **rotation** and **translation vectors** for each camera relative to a global reference frame.  
 
-<div align="center">
-  <img src="images/paper_preview.png" width="400" alt="Preview of LaTeX paper" />
-</div>
+3. **Colored Dot Detection (if using color markers)**  
+   - Run the `main.py` file inside the **`HSV/`** folder to determine the HSV thresholds for color segmentation.  
 
-The full paper is available in the `paper/` folder as a PDF.  
+4. **ArUco Marker Detection (if using ArUco markers)**  
+   - In the **`2D/`** or **`3D/`** main script, update the **ArUco marker ID/number** to match the marker used in your setup.  
+
+5. **Localization**  
+   - Run `main.py` in either the **`2D/`** or **`3D/`** folder for final pose estimation and localization.  
+
+> **Note:**  
+> - **At least 2 cameras** are required for **3D localization**.  
+> - **One or more cameras** can be used for **2D localization**.  
 
 ---
 
 ## 🛠️ Technologies & Libraries
-
 - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 - ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 - ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-- Image processing, linear algebra, and camera calibration tools included
 
 ---
-
-## 📷 Example Usage
-
-```bash
-# Run ArUco 3D pose estimation
-python aruco/3D/pose_estimation.py --camera-config calibration/camera_params.yaml
-
-# Run colored dots 3D pose estimation
-python colored_dots/3D/pose_estimation.py --camera-config calibration/camera_params.yaml
-
-Each marker type has its dedicated folder:
-
