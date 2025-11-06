@@ -53,11 +53,11 @@ The software estimates the 3D **position and orientation** of objects using mult
 Follow these steps to correctly set up and run the pose estimation system:
 
 1. **Intrinsic Calibration**  
-   - Run the `main.py` file inside the **`intrinsic_calibration/`** folder.  
+   - Run the `main.py` file inside the **`intrinsic calibration/`** folder.  
    - This computes the **camera matrix** and distortion coefficients for each camera.  
 
 2. **Extrinsic Calibration**  
-   - Run the `main.py` file inside the **`extrinsic_calibration/`** folder.  
+   - Run the `main.py` file inside the **`extrinsic calibration/`** folder.  
    - This determines the **rotation** and **translation vectors** for each camera relative to a global reference frame.  
 
 3. **Colored Dot Detection (if using color markers)**  
