@@ -11,7 +11,7 @@
 
 This repository contains a **Python-based 3D pose estimation tool** developed to support bachelor and master theses, as well as research projects, at the Vrije Universiteit Brussel (VUB).
 
-A **formal research paper** documenting the full algorithm, mathematical derivation, and results is included in this repository as [paper.pdf](paper.pdf).
+A **formal paper** documenting the full algorithm, mathematical derivation, and results is included in this repository as [paper.pdf](paper.pdf).
 
 <figure>
   <img src="images/paper_preview.png" width="250"/>
