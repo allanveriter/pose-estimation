@@ -34,8 +34,6 @@ All code is fully implemented in Python using **NumPy** for matrix computations 
 ### Repository Structure
 
 Each marker type has its dedicated folder:
-
-```text
 project_root/
 ├── aruco/                # ArUco marker detection
 │   ├── 2D/               # 2D localization scripts
