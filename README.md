@@ -1,20 +1,20 @@
 <!-- README.md - 3D Pose Estimation Tool -->
 <div align="center">
   <h1>3D Pose Estimation Tool</h1>
-  <h3>Developed during a student research job at the Robotics Lab, Vrije Universiteit Brussel</h3>
+  <h3>Developed during a student research job at the Robot Lab, under the supervison of Jan Lemeire, Vrije Universiteit Brussel</h3>
 </div>
 
 ---
 
 ## 📄 Overview
-<img src="images/aruco_detection_scene.jpg" width="500" align="right" />
+<img src="images/aruco_detection_scene.jpg" width="455" align="right" />
 
 This repository contains a **Python-based 3D pose estimation tool** developed to support bachelor and master theses, as well as research projects, at the Vrije Universiteit Brussel (VUB).
 
 A **formal research paper** documenting the full algorithm, mathematical derivation, and results is included in this repository as [paper.pdf](paper.pdf).
 
 <figure>
-  <img src="images/paper_preview.png" width="300"/>
+  <img src="images/paper_preview.png" width="250"/>
   <figcaption>Excerpt from the included research paper (<a href="paper.pdf">paper.pdf</a>).</figcaption>
 </figure>
 
@@ -25,25 +25,27 @@ The software estimates the 3D **position and orientation** of objects using mult
 ---
 
 ## 🖼️ Images & Examples
-<figure>
-  <img src="images/colored_dots_drone.jpg" width="350"/>
-  <figcaption>Example setup of a drone frame with four colored dots for detection.</figcaption>
-</figure>
+<table align="center" style="border-collapse:collapse; border:none;">
+  <tr>
+    <td align="center" style="vertical-align: top; padding:10px; border:none;">
+      <img src="images/colored_dots_drone.jpg" width="350"/><br/>
+      <figcaption style="width:350px;">Example setup of a drone frame with four colored dots for detection.</figcaption>
+    </td>
+    <td align="center" style="vertical-align: top; padding:10px; border:none;">
+      <img src="images/aruco_pose_estimation_screenshot.png" width="450"/><br/>
+      <figcaption style="width:450px;">Screenshot of ArUco pose estimation in progress. Four cameras are tracking the marker; pose and error values are printed.</figcaption>
+    </td>
+  </tr>
+</table>
 
-<figure>
-  <img src="images/aruco_pose_estimation_screenshot.png" width="450"/>
-  <figcaption>Screenshot of ArUco pose estimation in progress. Four cameras are tracking the marker; pose and error values are printed for iterative refinement.</figcaption>
-</figure>
 
 ---
 
 ## ⚙️ Features
 - Real-time 3D pose estimation  
-- Automatic selection of best two cameras for tracking  
-- Iterative error minimization and uncertainty estimation  
+- Automatic selection of best two cameras for tracking   
 - Configurable for different marker types, sizes, and camera setups  
 - Includes intrinsic and extrinsic camera calibration scripts  
-
 ---
 
 ## 🧭 Usage
